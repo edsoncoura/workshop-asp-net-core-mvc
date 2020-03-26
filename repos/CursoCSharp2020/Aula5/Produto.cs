@@ -5,34 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 
-namespace Aula04
+namespace Aula05
 {
     class Produto
     {
 
-        public string Nome;
-        public double Preco;
-        public int Quantidade;
+        //definicao das variaveis para a properties, tudo private.
+        //private string _nome;
+        //private double _preco;
+        //private int _quantidade;
+        //Final aqui das variaveis para a properties, com tudo private
 
+        //definicao das variaveis para o auto-properties.
+        private string _nome;
+        public double Preco { get; private set; }
+        public int Quantidade { get; private set; }
+        //Final aqui das variaveis para auto-properties
 
-        public Produto(string nome, double preco, int quantidade)
-        {
-            Nome = nome;
-            Preco = preco;
-            Quantidade = quantidade;
-
-        }
-
-        /* Novo construtor proposto no capitulo sobrecarga, onde o paramentro quantidade
-         * será iniciado com o valor 5
-         * */
-
-        public Produto(string nome, double preco)
-        {
-            Nome = nome;
-            Preco = preco;
-            Quantidade = 5;
-        }
 
         //Construtor padra
 
@@ -40,6 +29,112 @@ namespace Aula04
         {
 
         }
+
+        public Produto(string nome, double preco, int quantidade)
+        {
+            _nome = nome; //nome nao pode ser feito pois ele tem uma logica 
+            Preco = preco;
+            Quantidade = quantidade;
+
+        }
+
+        /* metodo GET 
+        public string GetNome()
+        {
+            return _nome;
+        }
+
+        public void SetNome(string nome)
+        {
+            if ( nome != null && nome.Length > 1)
+            {
+                _nome = nome;
+            }
+            else
+            {
+                Console.WriteLine("Nao permitido");
+            }
+            
+        }
+
+        public double GetPreco()
+        {
+            return _preco;
+        }
+
+        public int GetQuantidade()
+        {
+            return _quantidade;
+        }
+        */
+
+        //Criar o encapsulamento via Proprieties 
+        //comeca aqui
+        /*
+        public string Nome
+        {
+            get { return _nome; }
+
+            set {
+                if (value != null && value.Length > 1)
+                {
+                    _nome = value;
+                }
+                else
+                {
+                    Console.WriteLine("Nao permitido");
+                }
+            }
+
+        }
+
+       
+        public double Preco
+        {
+           get { return _preco; }
+        }
+
+        
+        public int Quantidade
+        {
+            get { return _quantidade; }
+        }
+          *///Final Properties 
+
+        //Inicio Auto Properties
+        public string Nome
+        {
+            get { return _nome; }
+
+            set
+            {
+                if (value != null && value.Length > 1)
+                {
+                    _nome = value;
+                }
+                else
+                {
+                    Console.WriteLine("Nao permitido");
+                }
+            }
+        }
+
+
+
+            //Final Auto Properties
+
+            /* Novo construtor proposto no capitulo sobrecarga, onde o paramentro quantidade
+             * será iniciado com o valor 5
+             * */
+
+        public Produto(string nome, double preco)
+        {
+            _nome = nome;
+            Preco = preco;
+            Quantidade = 5;
+        }
+
+
 
 
         public double ValorTotalEmEstoque()
@@ -61,7 +156,7 @@ namespace Aula04
 
         public override string ToString()
         {
-            return Nome + ", $ " + Preco.ToString("F2", CultureInfo.InvariantCulture)
+            return _nome + ", $ " + Preco.ToString("F2", CultureInfo.InvariantCulture)
                 + ", "
                 + Quantidade
                 + " unidades , Total: $ "

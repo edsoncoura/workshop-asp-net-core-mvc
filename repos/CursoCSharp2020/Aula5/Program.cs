@@ -28,6 +28,7 @@ namespace Aula5
           string nome = Console.ReadLine();
           Console.Write("Preço: ");
           double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
             // Comentado pois será utilziado o construtor com o parametro com quantidade zerado
             // Console.Write("Quantidade no estoque: ");
             // p.Quantidade = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);

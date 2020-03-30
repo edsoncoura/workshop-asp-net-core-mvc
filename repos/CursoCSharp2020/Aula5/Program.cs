@@ -81,10 +81,12 @@ namespace Aula05
              *   -------------------------------------
              */
 
-
+           ContaBancaria conta; //iniciei a variavel "conta" fora do laço if, pois se o fizesse 
+                                //dentro do laço a variavel só existiria dentro do laço
+                                // por tanto inicia-se fora e dentro do laço passa-se os dados para a variavel
             
             Console.Write("Entre o numero da conta: ");
-            int conta = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            int numero = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             Console.Write("Entre o titular da conta:" );
             string titular = Console.ReadLine();
             Console.Write("Haverá deposito incial (s/n)? ");
@@ -93,12 +95,33 @@ namespace Aula05
             {
                 Console.Write("Entre o valor de depósito inicial: ");
                 double depInicial = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                conta = new ContaBancaria(numero, titular, depInicial);
 
-                Console.WriteLine("Saldo incial eh: " + depInicial);
+            }
+            else
+            {
+                conta = new ContaBancaria(numero, titular);
             }
 
+            Console.WriteLine("=================================================");
 
+            Console.WriteLine("Dados da Conta:");
+            Console.WriteLine(conta);
 
+            Console.WriteLine("================================================");
+            Console.Write("Entre um valor para deposito: ");
+            double quantdep = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            conta.Deposito(quantdep);
+            Console.WriteLine("Dados da conta atualziados: ");
+            Console.WriteLine(conta);
+            Console.WriteLine("================================================");
+
+            Console.Write("Entre um valor para saque: ");
+            double quantsaque = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            conta.Saque(quantsaque);
+            Console.WriteLine("Dados da conta atualziados: ");
+            Console.WriteLine(conta);
+            Console.WriteLine("================================================");
 
 
 

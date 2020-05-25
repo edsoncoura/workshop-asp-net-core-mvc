@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace Aula06
 {
@@ -11,10 +12,12 @@ namespace Aula06
         static void Main(string[] args)
         {
 
+            /* vetores parte1
+
             Estudante[] vect = new Estudante[10];
 
-
-
+           // Console.WriteLine(vect[]);
+            
             Console.Write("Quantos quartos serão alugados? ");
             int n = int.Parse(Console.ReadLine());
             
@@ -26,13 +29,6 @@ namespace Aula06
                 string nome = Console.ReadLine();
                 Console.Write("Email: ");
                 string email = Console.ReadLine();
-                Console.WriteLine("===================================================");
-                Console.WriteLine("Quartos Vagos");
-                for (int a = 0; a < 10; a++)
-                  if (vect[a] == null)
-                    {
-                        Console.WriteLine(i + ": " + vect[i]);
-                    }
                 Console.WriteLine("===================================================");
                 Console.Write("Quarto: ");
                 int quarto = int.Parse(Console.ReadLine());
@@ -47,7 +43,37 @@ namespace Aula06
             {
                 Console.WriteLine(i + ": " + vect[i]);
             }
+       
+              
+             */ //Fim Vetores parte 1
 
+
+            //Inicio exercicio Veteroes Parte 2
+
+           int n = int.Parse(Console.ReadLine());
+
+            Produto[] vect = new Produto[n];
+
+            for (int i = 0; i <  n; i++ )
+            {
+                string nome = Console.ReadLine();
+                double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                vect[i] = new Produto { Name = nome, Price = price };
+            }
+
+            double sum = 0.0;
+            for (int i = 0; i < n; i++ )
+            {
+                sum += vect[i].Price;
+            }
+
+            double avg = sum / n;
+
+            Console.WriteLine("AVERAGE PRICE= " + avg.ToString("F2", CultureInfo.InvariantCulture));
+            
         }
+       
+
+        
     }
 }

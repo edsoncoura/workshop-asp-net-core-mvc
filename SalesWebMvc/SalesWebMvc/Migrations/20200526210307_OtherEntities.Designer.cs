@@ -66,7 +66,7 @@ namespace SalesWebMvc.Migrations
 
                     b.Property<string>("Email");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Name");
 
                     b.HasKey("Id");
 

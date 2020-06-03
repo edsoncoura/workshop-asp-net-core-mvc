@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SalesWebMvc.Service
+namespace SalesWebMvc.Services
 {
     public class SellerService
     {
@@ -23,9 +23,7 @@ namespace SalesWebMvc.Service
 
         public void Insert(Seller obj)
         {
-            obj.Department = _context.Department.First();
-
-
+            
             _context.Add(obj);
             _context.SaveChanges();
         }

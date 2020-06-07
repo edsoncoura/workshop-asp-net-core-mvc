@@ -43,7 +43,7 @@ namespace SalesWebMvc.Services
                 await _context.SaveChangesAsync();
             }
 
-            catch (DbUpdateException e)
+            catch (DbUpdateException)
             {
                 throw new IntegrityException("Não pode deletar, pois o vendendor tem vendas!");
             }
